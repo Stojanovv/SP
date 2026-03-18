@@ -1,0 +1,73 @@
+#include <iostream>
+#include<iomanip>
+#include<vector>
+#include<algorithm>
+
+using namespace std;
+
+
+int main() {
+    int n;
+    cin>>n;
+    int suma=0,suma2=0,suma3=0;
+    bool tocna=false;
+    int temp;
+    int mat[n][n];
+    for (int i = 0; i < n; ++i) {
+        for (int j = 0; j < n; ++j) {
+            cin >> mat[i][j];
+        }
+    }
+    for (int i = 0; i < n; ++i) {
+        suma+=mat[0][i];
+    }
+    temp=suma;
+   
+
+    for (int i = 0; i < n; ++i) {
+        suma2=0;
+        for (int j = 0; j < n; ++j) {
+            suma2+=mat[i][j];
+        }
+        if(suma2!=temp){
+            tocna=false;
+            break;
+        }
+        else tocna=true;
+    }
+    if(!tocna){
+        false;
+    }
+    for (int j = 0; j < n; ++j) {
+        suma3=0;
+        for (int i = 0; i < n; ++i) {
+            suma3+=mat[i][j];
+        }
+        if (suma3!=temp){
+            tocna= false;
+            break;
+        }else {
+            tocna=true;
+        }
+    }
+    if (tocna){
+        cout<<"True"<<endl;
+         for (int i = 0; i < n; ++i) {
+        for (int j = 0; j < n; ++j) {
+            if (i==j){
+                mat[i][j]=temp;
+            }else if(i+j==n-1){
+                mat[i][j]=temp;
+            }
+        }
+    }
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < n; ++j) {
+                cout<<mat[i][j]<<" ";
+            }
+            cout<<endl;
+        }
+    } else{
+        cout<<"False";
+    }
+}
