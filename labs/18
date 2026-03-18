@@ -1,0 +1,20 @@
+#include <iostream>
+#include <iomanip>
+using namespace std;
+void from(int n) {
+    if (n == 0) return;
+    for (int i = 0; i < n; ++i) {
+        cout << "*";
+    }
+    cout<<endl;
+    from(n-1);
+}
+int main() {
+    int n;
+    cin>>n;
+    from(n);
+    
+   
+    
+    return 0;
+}
