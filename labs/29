@@ -1,0 +1,30 @@
+#include <iostream>
+#include<iomanip>
+using namespace std;
+
+
+int main() {
+    int n,k,counter=0;
+    cin>>n;
+    cin>>k;
+    int a[100];
+    for (int i = 0; i < n; ++i) {
+        cin >> a[i];
+    }
+    for (int i = 0; i < n; ++i) {
+
+        if (a[i]==k) counter++;
+
+    }
+
+    for (int i = 0; i < n; ++i) {
+        cout<<a[i]<<" ";
+
+
+    }
+    cout<<endl;
+    cout<<"Brojot "<<k<<" "<<"vo nizata se naogja "<<counter<<" "<<"pati.";
+
+
+    return 0;
+}
