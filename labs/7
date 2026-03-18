@@ -1,0 +1,32 @@
+#include <iostream>
+#include<iomanip>
+using namespace std;
+
+
+int main() {
+   int n,parni,neparni,vkupno1,vkupno2;
+   int a[100];
+   cin>>n;
+    for (int i = 0; i < n; ++i) {
+        cin>>a[i];
+        if(i%2!=0) {
+
+            if ( a[i]%2==0)  parni++;
+                vkupno1++;
+                  }
+                  else {
+                  if (a[i]%2==1)  neparni++;
+                vkupno2++;}
+
+    }
+   
+            
+        
+    double procent1=(parni*100)/vkupno1;
+    double procent2=(neparni*100)/vkupno2;
+    if (procent1>=50  && procent2>=30) cout<<"0";
+    else
+        cout<<"1";
+
+    return 0;
+}
