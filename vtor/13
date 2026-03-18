@@ -1,0 +1,41 @@
+#include <iostream>
+using namespace std;
+int main(){
+    int x,n,m;
+    cin>>x>>n>>m;
+    int mat[100][100];
+    for (int i = 0; i < n; ++i) {
+        for (int j = 0; j < m; ++j) {
+            cin>>mat[i][j];
+        }
+    }
+    for (int i = 0; i < n; ++i) {
+        int suma=0;
+        for (int j = 0; j < m; ++j) {
+            suma += mat[i][j];
+        }
+            if (x<suma){
+                for (int j = 0; j < m; ++j) {
+                    mat[i][j]=1;
+                }
+            }
+            else if (x>suma){
+                for (int j = 0; j < m; ++j) {
+                    mat[i][j]=-1;
+                }
+
+            }
+            else{
+                for (int j = 0; j < m; ++j) {
+                    mat[i][j]=0;
+                }
+
+            }
+    }
+    for (int i = 0; i < n; ++i) {
+        for (int j = 0; j < m; ++j) {
+            cout<<mat[i][j]<<" ";
+        }
+        cout<<endl;
+    }
+}
