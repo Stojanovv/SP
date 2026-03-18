@@ -1,0 +1,22 @@
+#include <iostream>
+#include<iomanip>
+#include<vector>
+using namespace std;
+int maxbroj(int broj,int najgolem) {
+    if (broj == 0) return najgolem;
+    if (broj % 10 > najgolem) {
+        najgolem = broj % 10;
+    }
+    return maxbroj(broj / 10, najgolem);
+}
+int main() {
+int broj,cifra,najgolem;
+    while (cin>>broj){
+        int najgolem=0;
+        cout<<maxbroj(broj,najgolem)<<endl;;
+        
+
+
+    }
+    return 0;
+}
