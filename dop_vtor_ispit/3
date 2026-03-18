@@ -1,0 +1,26 @@
+#include <iostream>
+#include<cstring>
+using namespace std;
+int main() {
+    int n;
+    cin >> n;
+    cin.ignore();
+    int brojac=0;
+    bool tocno= false;
+    char niza[100];
+    for (int i = 0; i < n; ++i) {
+        brojac = 0;
+        cin.getline(niza, 80);
+        for (int j = 0; j < strlen(niza); ++j) {
+            if (niza[j] == 'a' && niza[j+1] == '1' ) {
+                brojac++;
+            }else if(niza[j] == 'A' && niza[j + 1] == '1' ){brojac++;}
+        }
+        if (brojac>=2){
+            for(char &c : niza){
+                c=tolower(c);
+            }
+            cout<<niza<<endl;
+        }
+    }
+}
