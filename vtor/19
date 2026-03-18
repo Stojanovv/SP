@@ -1,0 +1,35 @@
+#include <iostream>
+#include <string>
+#include <cctype> 
+
+void transformString(std::string& str, int index, int X) {
+    if (index >= str.length()) {
+        return;
+    }
+    
+    char ch = str[index];
+    if (isalpha(ch)) {
+        char base = islower(ch) ? 'a' : 'A';
+        ch = base + (ch - base + X) % 26;
+        str[index] = ch;
+    }
+    
+    transformString(str, index + 1, X);
+}
+
+int main() {
+    int N, X;
+    std::cin >> N >> X;
+    std::cin.ignore(); 
+
+    for (int i = 0; i < N; ++i) {
+        std::string line;
+        std::getline(std::cin, line);
+        
+        transformString(line, 0, X);
+        
+        std::cout << line << std::endl;
+    }
+
+    return 0;
+}
