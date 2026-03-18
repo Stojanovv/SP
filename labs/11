@@ -1,0 +1,39 @@
+#include<iostream>
+using namespace std;
+int main() {
+    int n,suma=0;
+    bool tocna=false;
+    cin>>n;
+    int niza[n][n];
+    for (int i = 0; i < n; ++i) {
+        for (int j = 0; j < n; ++j) {
+            cin>>niza[i][j];
+        }
+    }
+    for (int i = 0; i < n; ++i) {
+        float suma = 0.0;
+        int c=0;
+        for (int j = 0; j < n; ++j) {
+            if (i>j){
+                suma+=niza[i][j];
+            }
+            else if (i==j){
+                if (niza[i][j]==suma){
+                    tocna=true; break;
+                }else{
+                    tocna=false; break;
+                }
+            }
+        }
+    }
+    if (tocna) {
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < n; ++j) {
+                cout << niza[i][j] << " ";
+            }
+            cout << endl;
+        }
+    } else{
+        cout<<"-1";
+    }
+}
