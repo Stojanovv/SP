@@ -1,0 +1,67 @@
+#include <iostream>
+#include<iomanip>
+#include<vector>
+#include<algorithm>
+
+using namespace std;
+
+int main() {
+    int n, m, min = 1000;
+    cin >> n >> m;
+    double suma=0.0,arsredina=0.0;
+    double mat[n][m],rez[n][m];
+    for (int i = 0; i < n; ++i) {
+        for (int j = 0; j < m; ++j) {
+            cin >> mat[i][j];
+            rez[i][j]=mat[i][j];
+        }
+    }
+    int red1,kol1,red2,kol2;
+    cin>>red1>>kol1>>red2>>kol2;
+    for (int i = red1; i <= red2; ++i) {
+        for (int j = kol1; j <= kol2; ++j) {
+            suma=0;
+            arsredina=0;
+            if (i==0 && j==0){
+                suma=mat[i][j]+mat[i+1][j]+mat[i][j+1]+mat[i+1][j+1];
+                arsredina=suma/4;
+            } else if (i==0 && j==m-1){
+                suma=mat[i][j]+mat[i+1][j]+mat[i][j-1]+mat[i+1][j-1];
+                arsredina=suma/4;
+            }
+            else if (i==n-1 && j==0){
+                suma=mat[i][j]+mat[i][j+1]+mat[i-1][j+1]+mat[i-1][j];
+                arsredina=suma/4;
+            }else  if (i==n-1&& j==m-1){
+                suma=mat[i][j]+mat[i-1][j]+mat[i][j-1]+mat[i-1][j-1];
+                arsredina=suma/4;
+            }
+            else if (i==0){
+                suma=mat[i][j]+mat[i+1][j]+mat[i][j+1]+mat[i][j-1]+mat[i+1][j-1]+mat[i+1][j+1];
+                arsredina=suma/6;
+            }
+            else if (i==n-1){
+                suma=mat[i][j]+mat[i-1][j]+mat[i][j+1]+mat[i][j-1]+mat[i-1][j+1]+mat[i-1][j-1];
+                arsredina=suma/6;
+            }
+            else if (j==0){
+                suma=mat[i][j]+mat[i+1][j]+mat[i-1][j]+mat[i][j+1]+mat[i+1][j+1]+mat[i-1][j+1];
+                arsredina=suma/6;
+            }else  if (j==n-1){
+                suma=mat[i][j]+mat[i+1][j]+mat[i-1][j]+mat[i][j-1]+mat[i+1][j-1]+mat[i-1][j-1];
+                arsredina=suma/6;
+            }
+            else{
+                suma=mat[i][j]+mat[i+1][j]+mat[i-1][j]+mat[i][j-1]+mat[i][j+1]+mat[i+1][j-1]+mat[i-1][j-1]+mat[i+1][j+1]+mat[i-1][j+1];
+                arsredina=suma/9;
+            }
+            rez[i][j]=arsredina;
+        }
+    }
+    for (int i = 0; i < n; ++i) {
+        for (int j = 0; j < m; ++j) {
+            cout<<rez[i][j]<<" ";
+        }
+        cout<<endl;
+    }
+}
