@@ -1,0 +1,26 @@
+#include <iostream>
+#include<cstring>
+#include<iomanip>
+using namespace std;
+
+int main(){
+  int uplata;
+  char sifra[10];
+  int tip;
+  float koef=1;
+  float max=0;
+  char temp[10];
+  int temptip;
+  float tempkoef;
+  cin>>uplata;
+    while (cin>>sifra>>tip>>tempkoef){
+        koef*=tempkoef;
+        if (tempkoef>max){
+            max=tempkoef;
+            temptip=tip;
+            strcpy(temp,sifra);
+        }
+    }
+    cout<<temp<<" "<<temptip<<" "<<max<<endl;
+    cout<<koef*uplata;
+    }
