@@ -1,0 +1,34 @@
+#include <iostream>
+#include<cstring>
+using namespace std;
+int brojsvrznici(char *niza){
+    int c=0,c1=0;
+    int j=0;
+    for (int i = 0; i <= strlen(niza); ++i) {
+        c=0;
+        for (j = i; j < strlen(niza); ++j) {
+            if (isalpha(niza[j])){
+                c++;
+            }else
+                break;
+                i++;
+        }
+        if (c<=3 && c != 0)
+            c1++;
+    }
+    return c1;
+}
+int main() {
+    int max=0;int brojac;
+  char niza[100];
+  char pomosna[100];
+    while (cin.getline(niza,100)){
+        brojac=brojsvrznici(niza);
+        if (brojac>max){
+            max= brojac;
+            strcpy(pomosna,niza);
+        }
+    }
+    cout<<max<<": "<<pomosna;
+    return 0;
+}
