@@ -1,0 +1,26 @@
+#include <iostream>
+#include<iomanip>
+#include<vector>
+#include<algorithm>
+
+using namespace std;
+
+
+int main() {
+    int n,k;
+    cin>>n>>k;
+    int a[n];
+    for (int i = 0; i < n; ++i) {
+        cin>>a[i];
+    }
+    sort(a,a+n);
+    cout<<k<<"-te najmali elementi se:"<<" ";
+    for (int i = 0; i < k; ++i) {
+        cout<<a[i]<<" ";
+
+    }
+
+
+
+    return 0;
+}
