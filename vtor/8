@@ -1,0 +1,49 @@
+#include <iostream>
+#include<cstring>
+using namespace std;
+int main() {
+    char niza[80];
+    int brojac1=0,brojac2=0;
+    int niza2[80];
+    bool tocno= false;
+    int index1,index2;
+    int max=0;
+    while (cin.getline(niza,80)){
+        int n= strlen(niza);
+        max=0;
+        brojac1=0;brojac2=0;
+        for (int i = 0; i < n; ++i) {
+            if (isdigit(niza[i])){
+                brojac1++;
+            }
+        }
+        for (int i = 0; i < n; ++i) {
+            if (brojac1>2){
+                tocno= true;
+            }else{
+                tocno=false;
+            }
+        }
+        for (int i = 0; i < n; ++i) {
+            if (strlen(niza)>max){
+                max=niza[i];
+                niza2[i]=max;
+            }
+        }
+        for (int i = 0; i < n; ++i) {
+            if (isdigit(niza[i])){
+                index1=i; break;
+            }
+        }
+        for (int i = n-1; i <0; ++i) {
+            if (isdigit(niza[i])){
+                index2=i;
+            }
+        }
+        if (tocno){
+            for (int i = index1; i < index2; ++i) {
+                cout<<niza2[i];
+            }
+        }
+    }
+}
