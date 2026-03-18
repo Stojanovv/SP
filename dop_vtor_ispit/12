@@ -1,0 +1,29 @@
+#include <iostream>
+#include<cstring>
+
+using namespace std;
+int main() {
+  int n,m;
+  cin>>n>>m;
+  int mat[100][100];
+    for (int i = 0; i < n; ++i) {
+        for (int j = 0; j < m; ++j) {
+            cin>>mat[i][j];
+        }
+    }
+    int brojac;
+    for (int i = 0; i < n; ++i) {
+        brojac=0;
+        for (int j = 0; j < m; ++j) {
+            if (mat[i][j]%2==0 && (i+j)%2==0){
+                brojac++;
+            }else if (mat[i][j]%2==1 && (i+j)%2==1){
+                brojac++;
+            }
+        }
+        cout<<i<<":"<<" "<<brojac<<endl;
+    }
+
+
+    return 0;
+}
