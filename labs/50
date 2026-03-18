@@ -1,0 +1,41 @@
+#include <iostream>
+#include<iomanip>
+#include<vector>
+#include<algorithm>
+
+using namespace std;
+
+
+int main() {
+    int n,m;
+    cin>>n>>m;
+    int min=1000,max=0;
+    int temp;
+    int mat[n][m], mmat[n][m];
+    for (int i = 0; i < n; ++i) {
+        for (int j = 0; j < m; ++j) {
+            cin >> mat[i][j];
+        }
+    }
+    for (int i = 0; i < n; ++i) {
+        for (int j = 0; j < m; ++j) {
+            cin >> mmat[i][j];
+        }
+    }
+    int brojac=0;
+    for (int i = 0; i < m; ++i) {
+        for (int j = 0; j < m; ++j) {
+            bool tocno= true;
+            for (int k = 0; k < n; ++k) {
+                if (mat[k][i]!=mmat[k][j]){
+                    tocno=false;
+                    break;
+                }
+            }
+            if (tocno){
+                brojac++;
+            }
+        }
+    }
+    cout<<brojac;
+}
