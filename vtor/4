@@ -1,0 +1,32 @@
+#include <iostream>
+#include<cstring>
+#include<iomanip>
+using namespace std;
+
+int main(){
+    int n,m;
+    cin>>n>>m;
+    int mat[100][100];
+    for (int i = 0; i < n; ++i) {
+        for (int j = 0; j < m; ++j) {
+            cin>>mat[i][j];
+        }
+    }
+    int kordinati1,kordinati2;
+    cin>>kordinati1>>kordinati2;
+    int prv=0,vtor=0,tret=0,cetvrt=0;
+    for (int i = 0; i < n; ++i) {
+        for (int j = 0; j < m; ++j) {
+            if (i<kordinati1 && j>=kordinati2){
+                prv+=mat[i][j];
+            }else if (i<kordinati1 && j<kordinati2){
+                vtor+=mat[i][j];
+            }else if (i>=kordinati1 && j<kordinati2){
+                tret+=mat[i][j];
+            }else if (i>=kordinati1 && j>=kordinati2){
+                cetvrt+=mat[i][j];
+            }
+        }
+    }
+    cout<<prv<<" "<<vtor<<" "<<tret<<" "<<cetvrt;
+ }
