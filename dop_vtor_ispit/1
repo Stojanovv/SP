@@ -1,0 +1,43 @@
+#include <iostream>
+#include <cmath>
+#include <cstring>
+
+using namespace std;
+
+bool palindrom(char niza[]){
+    int n= strlen(niza);
+    for (int i = 0; i < strlen(niza)/2; ++i) {
+        if(!(niza[i]==niza[n-i-1]))return false;
+    }
+    return true;
+}
+bool daliSpecijalen(char niza[]){
+    for (int i = 0; i < strlen(niza); ++i) {
+        if(!isalnum(niza[i]))return true;
+    }
+    return false;
+}
+int main(){
+    int broj;
+    cin>>broj;
+    char niza[80];
+    int counter=0;
+    int maks=0;
+    char kopija[80];
+    for (int i = 0; i < broj; ++i) {
+        
+        cin>>niza;
+        if(palindrom(niza)){
+            if(daliSpecijalen(niza)){
+                if(strlen(niza)>maks){
+                    strcpy(kopija,niza);
+                    maks= strlen(niza);
+                }
+                counter++;
+            }
+        }
+        
+    }
+    if(counter==0)cout<<"Nema!";
+    else cout<<kopija;
+}
