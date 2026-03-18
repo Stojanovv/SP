@@ -1,0 +1,62 @@
+#include <iostream>
+#include<iomanip>
+
+using namespace std;
+int main() {
+    int n,m;
+    cin>>n>>m;
+    int mat[n][m];
+    for (int i = 0; i < n; ++i) {
+        for (int j = 0; j < m; ++j) {
+            cin>>mat[i][j];
+        }
+    }
+    int niza[n];
+    double suma;double arsredina;
+    double razlika=0;
+    double min=0;
+    for (int i = 0; i < n; ++i) {
+        suma=0;
+        min=0;
+        arsredina=0;
+        min=0;
+        int p;  
+        for (int j = 0; j < m; ++j) {
+            suma+=mat[i][j];
+        }
+        arsredina=suma/(m*1.0);
+                for (int j = 0; j < m; ++j) {
+            if (arsredina>mat[i][j]){
+                razlika=arsredina-mat[i][j];
+                if (razlika>min){
+                    min=razlika;
+                    p=mat[i][j];
+                }
+            }
+            else if (arsredina<mat[i][j]){
+                razlika=mat[i][j]-arsredina;
+                if (razlika>min){
+                    min=razlika;
+                    p=mat[i][j];
+                }
+            } else{
+                razlika=mat[i][j]-arsredina;
+                if (razlika>=min){
+                     min=razlika;
+                    p=mat[i][j];
+                }
+            }
+        }
+        niza[i]=p;
+
+    }
+    for (int i = 0; i < n; ++i) {
+        cout<<niza[i]<<" ";
+    }
+
+    return 0;
+}
+
+
+            }
+            */
