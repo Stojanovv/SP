@@ -1,0 +1,51 @@
+#include <iostream>
+#include<cstring>
+#include<iomanip>
+using namespace std;
+void transformacija(int niza[],int n){
+    int p=niza[0];
+    int temp[100]={0};
+
+    if (p>0){
+        for (int i = 0; i < n; ++i) {
+            if (i+p<n){
+                temp[i+p]=niza[i];
+            }
+        }
+    }else if (p<0){
+        p=-p;
+        for (int i = 0; i < n; ++i) {
+            if (i-p>=n){
+                temp[i-p]=niza[i];
+            }
+        }
+    }
+    for (int i = 0; i < n; ++i) {
+        niza[i]=temp[i];
+    }
+}
+int main(){
+    int m ,n ;
+    int niza[100];int brojac=0;
+    for (int i = 0; i < m; ++i) {
+        cin>>n;
+        for (int j = 0; j < n; ++j) {
+            cin>>niza[n];
+        }
+        transformacija(niza,n);
+        bool nuli= true;
+        for (int j = 0; j < n; ++j) {
+            cout<<niza[i]<<" ";
+            if (niza[i]!=0){
+                nuli=false;
+            }
+        }cout<<endl;
+        if (nuli){
+            brojac++;
+        }
+    }
+    cout<<brojac;
+
+
+
+}
