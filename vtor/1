@@ -1,0 +1,71 @@
+#include <iostream>
+#include<cstring>
+using namespace std;
+bool  samoglaska(char n){
+    char a= tolower(n);
+        if (a=='a'||a=='e'||a=='i'||a=='o'||a=='u' ){
+            return true;
+        }
+        else
+            return false;
+}
+    /*bool brojac(char niza[],int counter){
+    for (int i = 0; i < strlen(niza); ++i) {
+        if (niza[i]=='a'||niza[i]=='e'||niza[i]=='i'||niza[i]=='o'||niza[i]=='u' && niza[i+1]=='a'||niza[i+1]=='e'||niza[i+1]=='i'||niza[i+1]=='o'||niza[i+1]=='u'){
+            counter++;
+        }
+    }
+    return counter;
+}*/
+int main() {
+    int counter=0;
+    char niza[100];
+    while(cin.getline(niza,100)){
+        for (int i = 0; i < strlen(niza); ++i) {
+            if (samoglaska(niza[i])){
+                switch(niza[i]){
+                    case 'A':
+                        niza[i]='a';
+                        break;
+                    case 'E':
+                        niza[i]='e';
+                        break;
+                    case 'I':
+                        niza[i]='i';
+                        break;
+                    case 'O':
+                        niza[i]='o';
+                        break;
+                    case 'U':
+                        niza[i]='u';
+                        break;
+
+                }
+                if (samoglaska(niza[i+1])){
+                    switch(niza[i+1]){
+                        case 'A':
+                            niza[i+1]='a';
+                            break;
+                        case 'E':
+                            niza[i+1]='e';
+                            break;
+                        case 'I':
+                            niza[i+1]='i';
+                            break;
+                        case 'O':
+                            niza[i+1]='o';
+                            break;
+                        case 'U':
+                            niza[i+1]='u';
+                            break;
+
+                    }
+                    cout<<niza[i]<<niza[i+1]<<endl;
+                    counter++;
+                }
+            }
+        }
+        
+    }
+        cout<<counter<<endl;
+}
