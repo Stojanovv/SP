@@ -1,0 +1,54 @@
+#include <iostream>
+#include<cstring>
+#include<iomanip>
+using namespace std;
+
+int main(){
+int n,m;
+cin>>n>>m;
+int mat[100][100];
+    for (int i = 0; i < n; ++i) {
+        for (int j = 0; j < m; ++j) {
+            cin>>mat[i][j];
+        }
+    }
+    int suma1,suma2,razlika;
+    for (int i = 0; i < n; ++i) {
+        suma1=0,suma2=0,razlika=0;
+        if (m%2==1){
+        for (int j = 0; j < m/2+1; ++j) {
+            suma1 += mat[i][j];
+        }
+        }else if (m%2==0){
+            for (int j = 0; j < m/2; ++j) {
+                suma1+=mat[i][j];
+            }
+        }
+        for (int j = m/2; j < m; ++j) {
+            suma2+=mat[i][j];
+        }
+        razlika=suma1-suma2;
+        if (razlika<0){
+            razlika*=-1;
+        }
+        if (m%2==0){
+            for (int j = 0; j < m; ++j) {
+                if (j==n/2-1 || j==n/2){
+                    mat[i][j]=razlika;
+                }
+            }
+        }else{
+            for (int j = 0; j < m; ++j) {
+                if (j==m/2){
+                    mat[i][j]=razlika;
+                }
+            }
+        }
+    }
+    for (int i = 0; i < n; ++i) {
+        for (int j = 0; j < m; ++j) {
+            cout<<mat[i][j]<<" ";
+        }
+        cout<<endl;
+    }
+ }
